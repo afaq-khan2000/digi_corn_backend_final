@@ -1,0 +1,6 @@
+# Auto detect text files and perform LF normalization
+<<<<<<< HEAD:back-end/.gitattributes
+* text=auto
+=======
+* text=auto
+>>>>>>> parent of 65c76c6 (express app creation):backend/.gitattributes
