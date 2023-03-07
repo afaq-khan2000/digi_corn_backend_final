@@ -1,8 +1,174 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.paddingX {
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
-a {
-  color: #00B7FF;
+@media screen and (max-width: 767px) {
+  /* For mobile phones: */
+  .paddingX {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* For desktop: */
+  .sticky-lg-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 200px;
+  }
+}
+@media screen and (max-width: 992px) {
+  /* For desktop: */
+  .sticky-md-top {
+    position: fixed;
+    top: 64px;
+  }
+}
+
+.primary {
+  color: #ffff;
+}
+
+.dark-gray {
+  color: #2b2b2b;
+}
+.paraColor {
+  color: #858584;
+}
+.secondary {
+  color: #a259ff;
+}
+.linksColor {
+  color: #cccccc;
+}
+.green {
+  color: #24ff00;
+}
+.blue {
+  color: "rgba(5,0,255,0.33);";
+}
+.gray {
+  color: #3b3b3b;
+}
+
+.background-primary {
+  background-color: #ffff;
+}
+
+.background-dark {
+  background-color: #2b2b2b;
+}
+
+.background-secondary {
+  background-color: #a259ff;
+}
+
+.background-green {
+  background-color: #24ff00;
+}
+.background-blue {
+  background-color: "rgba(5,0,255,0.33);";
+}
+.background-gray {
+  background-color: #3b3b3b;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url(/Asset/Fonts/FontsFree-Net-ClashDisplay-Variable.ttf);
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(/Asset/Fonts/Poppins-Black.otf);
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-clash {
+  font-family: "Clash Display", sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #69eacb 0%, #eaccf8 48%, #6654f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.text-48 {
+  font-size: 48px;
+}
+.text-24 {
+  font-size: 24px;
+}
+.text-28 {
+  font-size: 28px;
+}
+.text-67 {
+  font-size: 67px;
+}
+.text-22 {
+  font-size: 22px;
+}
+.text-20 {
+  font-size: 20px;
+}
+.text-18 {
+  font-size: 18px;
+}
+.btn {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover {
+  transform: scale(0.9);
+}
+
+.rounded-border {
+  border-radius: 20px;
+}
+
+.pt-10 {
+  padding-top: 100px;
+}
+.mt-10 {
+  margin-top: 100px;
+}
+.pb-10 {
+  padding-bottom: 100px;
+}
+
+.pulse {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pulse:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.dark-transparent {
+  background: rgba(43, 43, 43, 0.7);
+}
+
+.translateX {
+  transition: transform 0.3s ease-in-out;
+}
+.translateX:hover {
+  transform: translateX(10px);
+}
+
+.formInput:focus {
+  background-color: #2b2b2b;
+  color: #fff;
+}
+input[type='radio'] {
+  accent-color: #3b3b3b;
+}
+
+.filters{
+border: 1px solid #3b3b3b;
 }

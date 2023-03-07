@@ -1,0 +1,31 @@
+<div class="text-white mt-10">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-9">
+      <h1 class="font-clash text-48">Top NFTS</h1>
+      <p class="h5">Explore All Top NFTS</p>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 d-none d-md-block">
+      <button
+        class="btn btn-lg background-secondary rounded-pill px-5 py-2 text-white"
+      >
+        View All
+      </button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <% const slicedNfts = nfts.slice(0, 9) %> <% for (let nft of slicedNfts) {
+    %>
+    <div class="col-12 col-md-6 col-lg-4 my-3">
+      <%- include('../partials/card', { nft: nft }) %>
+    </div>
+    <% } %>
+
+    <div class="col-12 d-block d-md-none">
+      <button
+        class="btn btn-lg background-secondary rounded-pill px-5 py-2 text-white w-100"
+      >
+        View All
+      </button>
+    </div>
+  </div>
+</div>

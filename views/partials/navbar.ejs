@@ -1,0 +1,43 @@
+<div class="sticky-top w-100 mx-auto">
+    <nav
+      class="pt-3 navbar navbar-expand-lg navbar-light background-dark paddingX"
+    >
+      <a href="/">
+        <img src="/Asset/logo-no-background.png" alt="" width="200px" class="img-fluid pulse" />
+      </a>
+
+      <!-- <h1 class="font-clash text-white">Digi-Corn</h1> -->
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          
+            
+              <% for (let link of navLinks) { %>
+                <li class="nav-item"></li>
+                <a href="<%=link.link%>" class="nav-link text-white mx-4 pulse"><%= link.title %></a>
+              </li>
+              <% } %>
+        
+
+          <a href="">
+            <button
+              class="btn background-secondary rounded-pill px-5 py-2 text-white"
+            >
+              Connect Wallet
+            </button>
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </div>

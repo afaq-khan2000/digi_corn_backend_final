@@ -1,0 +1,42 @@
+<div
+  class="row background-gray paddingX text-white w-100 paddingX py-5 mx-auto"
+>
+  <div class="col-12 col-md-6 col-lg-4">
+    <img
+      src="/Asset/logo-no-background.png"
+      alt=""
+      width="200px"
+      class="img-fluid mb-3 pulse"
+    />
+    <!-- <h3 class="font-clash">Digi-Corn</h3> -->
+    <p class="paraColor h5">A marketplace where you can sell and buy Nfts</p>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <h3 class="font-clash">Explore</h3>
+    <% navLinks.forEach(link => { %>
+    <a href="<%= link.link %>" style="text-decoration: none">
+      <p class="paraColor h5 my-4 translateX"><%= link.title %></p>
+    </a>
+    <% }) %>
+  </div>
+  <div class="col-12 col-lg-4">
+    <h1 class="font-clash">Join our weekly digest</h1>
+    <div class="row mt-4">
+      <div class="col-12 col-lg-8">
+        <input
+          type="text"
+          class="form-control form-control-lg rounded-border"
+          placeholder="Enter your Email here"
+        />
+      </div>
+
+      <div class="col-12 col-md-4">
+        <button
+          class="btn btn-lg background-secondary rounded-pill py-2 text-white my-3 my-lg-0"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

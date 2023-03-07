@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include('partials/header')%>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('partials/navbar', { navLinks: constants.navLinks }) %>
+    <div class="paddingX background-dark pb-10 w-100 mx-auto">
+      <%- include('home/hero')%> <%- include('home/topNfts', { nfts:
+      constants.cardData }) %> <%- include('home/topCategories', { categories:
+      constants.topCategories }) %> <%- include('partials/support') %>
+    </div>
+    <%- include('partials/footer', { navLinks: constants.navLinks }) %>
   </body>
 </html>
