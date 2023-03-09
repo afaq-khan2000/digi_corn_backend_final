@@ -13,8 +13,7 @@
     </div>
   </div>
   <div class="row mt-5">
-    <% const slicedNfts = nfts.slice(0, 9) %> <% for (let nft of slicedNfts) {
-    %>
+    <% const slicedNfts = nfts.slice(0, 9) %> <% for (let nft of slicedNfts) {    %>
     <div class="col-12 col-md-6 col-lg-4 my-3">
       <%- include('../partials/card', { nft: nft }) %>
     </div>

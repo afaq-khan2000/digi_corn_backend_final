@@ -5,11 +5,17 @@ const fs = require("fs");
 const path = require("path");
 
 exports.addNft = async (req, res) => {
-  const { name, description, createdBy, price } = req.body;
+  const { name, description, price } = req.body;
   console.log(req.body);
   console.log(req.file);
   try {
-    const nft = new Nft({ name, description, price, file: req.file.filename });
+    const nft = new Nft({
+      name,
+      description,
+      price,
+      latestBid: price,
+      file: req.file.filename,
+    });
     await nft.save();
     res.status(200).json({ nft });
   } catch (error) {

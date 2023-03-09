@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/header')%>
+    <script>
+      function handleFileInput(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = function () {
+            const previewElement = document.getElementById("preview");
+            const previewContent = file.type.startsWith("image/")
+              ? `<img src="${reader.result}" alt="Preview" class="img-fluid rounded-border sticky-lg-top"/>`
+              : `<video controls class="img-fluid rounded-border sticky-lg-top"><source src="${reader.result}" type="video/mp4"/></video>`;
+            previewElement.innerHTML = previewContent;
+            if (file.type.startsWith("video/")) {
+              previewElement.querySelector("video").load();
+            }
+          };
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <%- include('partials/navbar', { navLinks: constants.navLinks }) %>
+    <div class="paddingX background-dark pb-10 w-100 mx-auto">
+      <h1 class="font-clash text-67 text-white">
+        Upload an <span class="text-gradient">NFT</span>
+      </h1>
+      <div class="row text-white mt-5">
+        <div class="col-12 col-lg-7">
+          <form action="/nfts/add" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="file" class="paraColor">
+                PNG, GIF, WEBP, MP4 or MP3. Max 100mb.
+              </label>
+              <input
+                accept=".png,.gif,.webp,.mp4,.mp3"
+                max="100000000"
+                id="file"
+                name="file"
+                type="file"
+                class="form-control form-control-lg background-gray rounded-border paraColor formInput"
+                onchange="handleFileInput(event)"
+              />
+            </div>
+            <div class="form-group">
+              <label for="price" class="paraColor">
+                Enter the Floor Price.
+              </label>
+              <input
+                id="price"
+                name="price"
+                type="number"
+                class="form-control form-control-lg background-gray rounded-border paraColor formInput"
+              />
+            </div>
+            <div class="form-group">
+              <label for="name" class="paraColor"> Enter the NFT Name. </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="form-control form-control-lg background-gray rounded-border paraColor formInput"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description" class="paraColor">
+                Enter the description.
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                rows="4"
+                class="form-control form-control-lg background-gray rounded-border paraColor formInput"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-lg background-secondary rounded-pill px-5 py-2 text-white"
+            >
+              Create
+            </button>
+          </form>
+        </div>
+        <div class="col-12 col-lg-5 order-first order-lg-2" id="preview">
+          <p class="font-clash h3">Preview</p>
+          <div
+            class="background-gray rounded-border text-center pt-10 sticky-lg-top"
+            style="height: 400px"
+          >
+            <p class="paraColor">Upload file to preview your brand new NFT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer', { navLinks: constants.navLinks }) %>
+  </body>
+</html>
