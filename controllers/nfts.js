@@ -17,7 +17,7 @@ exports.addNft = async (req, res) => {
       file: req.file.filename,
     });
     await nft.save();
-    res.status(200).json({ nft });
+    res.status(200).json( "NFT Minted Successfully ");
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
