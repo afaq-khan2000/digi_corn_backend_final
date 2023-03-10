@@ -6,8 +6,8 @@ const path = require("path");
 
 exports.addNft = async (req, res) => {
   const { name, description, price } = req.body;
-  console.log(req.body);
-  console.log(req.file);
+  // console.log(req.body);
+  // console.log(req.file);
   try {
     const nft = new Nft({
       name,
@@ -17,7 +17,7 @@ exports.addNft = async (req, res) => {
       file: req.file.filename,
     });
     await nft.save();
-    res.status(200).json( "NFT Minted Successfully ");
+    res.status(200).json("NFT Minted Successfully ");
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -25,7 +25,7 @@ exports.addNft = async (req, res) => {
 
 exports.getNfts = async (req, res) => {
   try {
-    const nfts = await Nft.find();
+    const nfts = await Nft.find().sort({ date: -1 });
     res.status(200).json({ nfts });
   } catch (error) {
     res.status(404).json({ message: error.message });

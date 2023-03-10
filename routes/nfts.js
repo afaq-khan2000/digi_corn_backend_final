@@ -8,6 +8,7 @@ const {
 } = require("../controllers/nfts");
 const router = express.Router();
 const multer = require("multer");
+const { requireSignin } = require("../middlewares/auth");
 
 // Define storage for uploaded files
 const storage = multer.diskStorage({
@@ -22,7 +23,7 @@ const storage = multer.diskStorage({
 // Create an instance of Multer
 const upload = multer({ storage: storage });
 
-router.post("/add", upload.single("file"), addNft);
+router.post("/add", requireSignin, upload.single("file"), addNft);
 router.get("/", getNfts);
 router.get("/:id", getSingleNft);
 router.put("/:id", upload.single("file"), updateNft);
