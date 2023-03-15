@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 exports.addNft = async (req, res) => {
-  const { name, description, price } = req.body;
+  const { name, description, price, owner } = req.body;
   // console.log(req.body);
   // console.log(req.file);
   try {
@@ -13,6 +13,7 @@ exports.addNft = async (req, res) => {
       name,
       description,
       price,
+      owner,
       latestBid: price,
       file: req.file.filename,
     });

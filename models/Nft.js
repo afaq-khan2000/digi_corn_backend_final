@@ -12,7 +12,10 @@ const nftSchema = new Schema({
     type: String,
     required: true,
   },
-  owner: { type: String, default: "Test User" },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users'
+  }
   // smartContract: {
   //   address: {
   //     type: String,
