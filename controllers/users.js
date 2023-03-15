@@ -71,14 +71,18 @@ exports.updateProfile = async (req, res) => {
     // console.log(req.body);
     // console.log(req.files.banner ? "true" : "false");
     if (req.files.pic) {
-      // Delete the old file from the server's file system
-      const oldPicPath = `./public/uploads/users/${user.pic}`;
-      fs.unlinkSync(oldPicPath);
+      if (!user.pic.startsWith("defaults")) {
+        // Delete the old file from the server's file system
+        const oldPicPath = `./public/uploads/users/${user.pic}`;
+        fs.unlinkSync(oldPicPath);
+      }
     }
     if (req.files.banner) {
-      // Delete the old file from the server's file system
-      const oldBannerPath = `./public/uploads/users/${user.banner}`;
-      fs.unlinkSync(oldBannerPath);
+      if (!user.banner.startsWith("defaults")) {
+        // Delete the old file from the server's file system
+        const oldBannerPath = `./public/uploads/users/${user.banner}`;
+        fs.unlinkSync(oldBannerPath);
+      }
     }
     var updatedUser = await User.findByIdAndUpdate(req.params.id, {
       name,
