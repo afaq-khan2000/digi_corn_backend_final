@@ -55,7 +55,7 @@ exports.signin = async (req, res) => {
 
 exports.getProfile = async (req, res) => {
   try {
-    var user = await User.findById(req.token.id);
+    var user = await User.findById(req.token.id).populate("favorites");
     if (!user) return res.status(401).json({ error: "User is not registered" });
     res.status(200).json({ user: user });
   } catch (e) {
@@ -69,7 +69,8 @@ exports.updateProfile = async (req, res) => {
     var user = await User.findById(req.params.id);
     if (!user) return res.json({ error: "User is not registered" });
     // console.log(req.body);
-    // console.log(req.files.banner ? "true" : "false");
+    // console.log(req.files.pic[0].filename);
+    // console.log(req.files.banner[0].filename);
     if (req.files.pic) {
       if (!user.pic.startsWith("defaults")) {
         // Delete the old file from the server's file system
@@ -91,7 +92,7 @@ exports.updateProfile = async (req, res) => {
       pic: req.files.pic ? req.files.pic[0].filename : user.pic,
       banner: req.files.banner ? req.files.banner[0].filename : user.banner,
     });
-    res.status(200).json({ user: user, message: "Profile Updated" });
+    res.status(200).json({ user: updatedUser, message: "Profile Updated" });
   } catch (e) {
     res.json({ error: e.message });
   }

@@ -26,7 +26,7 @@ exports.addNft = async (req, res) => {
 
 exports.getNfts = async (req, res) => {
   try {
-    const nfts = await Nft.find().sort({ date: -1 });
+    const nfts = await Nft.find().sort({ date: -1 }).populate("owner");
     res.status(200).json({ nfts });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -35,7 +35,7 @@ exports.getNfts = async (req, res) => {
 
 exports.getSingleNft = async (req, res) => {
   try {
-    const nft = await Nft.findById(req.params.id);
+    const nft = await Nft.findById(req.params.id).populate("owner");
     res.status(200).json({ nft });
   } catch (error) {
     res.status(404).json({ message: error.message });

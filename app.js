@@ -12,6 +12,8 @@ require("dotenv").config();
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var nftsRouter = require("./routes/nfts");
+var usersRouter = require("./routes/users");
+var favoritesRouter = require("./routes/favorites");
 const { requireSignin } = require("./middlewares/auth");
 
 var app = express();
@@ -33,6 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/nfts", nftsRouter);
+app.use("/favorites", favoritesRouter);
 
 // MongoDb Connection
 mongoose

@@ -8,6 +8,10 @@ const userSchema = new Schema({
   bio: { type: String },
   pic: { type: String },
   banner: { type: String },
+  favorites: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "favorites",
+  },
 });
 
 module.exports = User = mongoose.model("users", userSchema, "users");

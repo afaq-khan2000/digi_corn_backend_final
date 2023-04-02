@@ -27,6 +27,7 @@ router.post("/login", signin);
 router.get("/profile", requireSignin, getProfile);
 router.put(
   "/profile/update/:id",
+  requireSignin,
   upload.fields([
     { name: "pic", maxCount: 1 },
     { name: "banner", maxCount: 1 },
